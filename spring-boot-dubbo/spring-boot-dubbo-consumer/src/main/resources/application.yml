@@ -1,0 +1,14 @@
+server:
+  port: 8082
+
+dubbo:
+  application:
+    name: demo_comsumer
+  registry:
+    protocol: zookeeper
+    address: 192.168.2.162:2181
+  consumer:
+    timeout: 3000
+    retries: 1
+  annotation:
+    package: com.hhjian.controller

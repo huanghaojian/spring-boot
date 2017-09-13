@@ -1,0 +1,39 @@
+server:
+  context-path: /provider
+  port: 8081
+
+dubbo:
+  protocol:
+    # 设为true，将向logger中输出访问日志，
+    # 也可填写访问日志文件路径，直接把访问日志输出到指定文件
+    accessLog: true
+  application:
+    # 日志输出方式，可选：slf4j,jcl,log4j,jdk
+    logger: log4j
+    # 当前应用名称，用于注册中心计算应用间依赖关系，
+    # 注意：消费者和提供者应用名不要一样，此参数不是匹配条件，
+    name: demo_provider
+  registry:
+    # 只调用指定协议的服务提供方，其它协议忽略。
+    protocol: zookeeper
+    # 注册地址
+    address: 192.168.2.162:2181
+     # 该协议的服务是否注册到注册中心
+    register: true
+    # 是否向此注册中心订阅服务，如果设为false，将只注册，不订阅
+    subscribe: true
+  service:
+    # 服务协议名称
+    protocol: dubbo
+    # 协议端口
+    port: 20880
+  provider:
+    # 服务方法调用超时时间(毫秒)
+    timeout: 3000
+    # 远程服务调用重试次数，不包括第一次调用，不需要重试请设为0
+    retries: 1
+    # 延迟注册服务时间(毫秒)- ，设为-1时，表示延迟到Spring容器初始化完成时暴露服务
+    delay: -1
+  annotation:
+    # 扫描注解包路径，多个包用逗号分隔，不填pacakge表示扫描当前ApplicationContext中所有的类
+    package: com.hhjian.serviceImpl
