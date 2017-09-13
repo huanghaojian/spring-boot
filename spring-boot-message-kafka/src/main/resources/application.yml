@@ -1,0 +1,11 @@
+spring:
+  kafka:
+    bootstrap-servers: 192.168.2.162:9092,192.168.2.162:9093,192.168.2.162:9094
+    producer:
+      #生产者序列化器
+      value-serializer: com.hhjian.serializer.ObjectSerializer
+    consumer:
+      group-id: sf-group
+      client-id: sf-client-1
+      #消费者反序列化器
+      value-deserializer: com.hhjian.deserializer.ObjectDeserializer
