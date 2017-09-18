@@ -1,4 +1,4 @@
-# 一
+# 一、本例子使用该方法
 [使用教程](https://my.oschina.net/xionghui/blog/824945)
 ## 由于spring-boot-starter-dubbo这个包没有发布到中央仓库所以需要自己编译安装
 ```
