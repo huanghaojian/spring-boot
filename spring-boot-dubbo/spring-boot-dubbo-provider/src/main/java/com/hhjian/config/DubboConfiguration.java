@@ -142,6 +142,8 @@ public class DubboConfiguration {
         providerConfig.setApplication(applicationConfig);
         providerConfig.setRegistry(registryConfig());
         providerConfig.setProtocol(protocolConfig);
+        // 随机token令牌，使用UUID生成
+        providerConfig.setToken(true);
         return providerConfig;
     }
 
