@@ -35,19 +35,7 @@ public class HelloController {
     @GetMapping("/message")
     public ResponseEntity hello(@RequestParam String message) {
         String result = helloService.hello(message);
-        String ip = NetInterfaceUtil.getServerIp();
-        String mac = NetInterfaceUtil.getServerMac();
-
-        Map<String, String> map = new HashMap<>();
-        map.put("Message:", result);
-        map.put("SERVER IP:", result);
-        map.put("SERVER MAC:", result);
-
-        LOGGER.info("SERVER IP:" + ip);
-        LOGGER.info("SERVER MAC:" + mac);
-        LOGGER.info("Message:" + result);
-
-        ResponseEntity responseEntity = new ResponseEntity(map, HttpStatus.OK);
+        ResponseEntity responseEntity = new ResponseEntity(result, HttpStatus.OK);
         return responseEntity;
     }
 }
