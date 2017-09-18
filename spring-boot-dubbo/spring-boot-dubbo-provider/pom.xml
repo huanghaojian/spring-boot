@@ -24,11 +24,6 @@
             <artifactId>spring-boot-dubbo-api</artifactId>
             <version>0.0.1-SNAPSHOT</version>
         </dependency>
-        <dependency>
-            <groupId>com.hhjian</groupId>
-            <artifactId>spring-boot-dubbo-consumer</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
-        </dependency>
     </dependencies>
 
     <build>
