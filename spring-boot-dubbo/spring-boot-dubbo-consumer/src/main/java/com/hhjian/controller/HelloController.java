@@ -21,7 +21,7 @@ import javax.servlet.http.HttpServletRequest;
 public class HelloController {
     private static Logger LOGGER = LoggerFactory.getLogger(HelloController.class);
 
-    @Reference(version = "1.0.0")
+    @Reference(version = "1.0.1")
     private DubboRegistryService helloService;
 
     @GetMapping("/message")

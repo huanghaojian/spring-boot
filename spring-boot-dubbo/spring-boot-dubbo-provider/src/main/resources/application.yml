@@ -41,7 +41,7 @@ dubbo:
 spring:
   data:
     mongodb:
-      host: 192.168.2.162
-      port: 27017
-#      uri: mongodb://127.0.0.1:27017/test
-      database: test
+#      host: 192.168.2.162
+#      port: 27017
+#      database: test
+      uri: mongodb://192.168.2.162:27017/test
