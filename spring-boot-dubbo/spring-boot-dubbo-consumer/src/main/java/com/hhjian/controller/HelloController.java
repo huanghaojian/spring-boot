@@ -38,11 +38,13 @@ public class HelloController {
     @GetMapping("/users/{id}")
     public User getUser(@PathVariable String id) {
         User user = helloService.getUser(id);
+        LOGGER.info("getUser:" + user);
         return user;
     }
 
     @PostMapping("/users")
     public User saveUser(@RequestBody User user) {
+        LOGGER.info("save users:" + user);
         return helloService.saveUser(user);
     }
 }

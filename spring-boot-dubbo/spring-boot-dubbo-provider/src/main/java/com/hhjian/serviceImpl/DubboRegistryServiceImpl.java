@@ -50,6 +50,12 @@ public class DubboRegistryServiceImpl implements DubboRegistryService {
 
     @Override
     public User getUser(String id) {
-        return userRepository.findOne(id);
+        String ip = NetInterfaceUtil.getServerIp();
+        String mac = NetInterfaceUtil.getServerMac();
+
+        User user = userRepository.findOne(id);
+        user.setLoginIp(ip);
+        user.setLoginMac(mac);
+        return user;
     }
 }
