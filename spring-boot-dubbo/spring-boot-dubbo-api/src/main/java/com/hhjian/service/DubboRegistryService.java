@@ -1,5 +1,7 @@
 package com.hhjian.service;
 
+import com.hhjian.domain.User;
+
 /**
  * <p>服务接口</p>
  *
@@ -7,5 +9,10 @@ package com.hhjian.service;
  * @since 2017.09.12
  */
 public interface DubboRegistryService {
+
     String hello(String message);
+
+    User saveUser(User user);
+
+    User getUser(String id);
 }

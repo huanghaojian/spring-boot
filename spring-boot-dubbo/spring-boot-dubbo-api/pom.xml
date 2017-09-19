@@ -6,6 +6,13 @@
     <groupId>com.hhjian</groupId>
     <artifactId>spring-boot-dubbo-api</artifactId>
     <version>0.0.1-SNAPSHOT</version>
+    <dependencies>
+        <dependency>
+            <groupId>com.hhjian</groupId>
+            <artifactId>spring-boot-dubbo-domain</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
+    </dependencies>
     <packaging>jar</packaging>
 
     <name>spring-boot-dubbo-api</name>
