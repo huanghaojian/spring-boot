@@ -14,8 +14,10 @@ class KotlinApplication {
 
     @Bean
     fun init(repository: UserRepository) = CommandLineRunner {
-        repository.save(User(name = "hao", age = 18, phone = "13987654321"))
-        repository.save(User(name = "jian", age = 19, phone = "13123456789"))
+        if (repository.count() == 0L) {
+            repository.save(User(name = "hao", age = 18, phone = "13987654321"))
+            repository.save(User(name = "jian", age = 19, phone = "13123456789"))
+        }
     }
 }
 

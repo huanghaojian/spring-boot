@@ -1,6 +1,5 @@
 package com.hhjian.kotlin.domain
 
-import org.springframework.data.annotation.Id
 import org.springframework.data.mongodb.core.mapping.Document
 
 /**
@@ -11,9 +10,6 @@ import org.springframework.data.mongodb.core.mapping.Document
  */
 @Document
 data class User(
-        var name: String?,
+        var name: String,
         var age: Int = 0,
-        var phone: String? = null) {
-    @Id
-    var id: String? = null
-}
+        var phone: String? = null) : BaseDO()
