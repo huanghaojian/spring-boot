@@ -9,4 +9,6 @@ import org.springframework.data.mongodb.repository.MongoRepository
  * @author <a href="mailto:hhjian.top@qq.com">hhjian</a>
  * @since 2018.01.05
  */
-interface UserRepository : MongoRepository<User, String>
+interface UserRepository : MongoRepository<User, String> {
+    fun findByName(name: String): User
+}

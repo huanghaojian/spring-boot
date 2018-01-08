@@ -2,6 +2,7 @@ package com.hhjian.kotlin
 
 import com.google.gson.Gson
 import com.hhjian.kotlin.query.UserInfoQuery
+import com.hhjian.kotlin.repository.UserRepository
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.springframework.beans.factory.annotation.Autowired
@@ -22,9 +23,8 @@ class KotlinApplicationTests {
     @Autowired
     private lateinit var mockMvc: MockMvc
 
-    @Test
-    fun contextLoads() {
-    }
+    @Autowired
+    private lateinit var userRepository: UserRepository
 
     @Test
     fun testListUser() {
@@ -34,17 +34,17 @@ class KotlinApplicationTests {
 
     @Test
     fun testGetUser() {
-        val userId = "5a5084250cbda24c85ad318d"
-        mockMvc.perform(MockMvcRequestBuilders.get("/users/$userId"))
+        val userDO = userRepository.findByName("hao")
+        mockMvc.perform(MockMvcRequestBuilders.get("/users/${userDO.id}"))
                 .andDo(MockMvcResultHandlers.print())
     }
 
     @Test
     fun testUpdateUser() {
-        val userId = "5a5084250cbda24c85ad318d"
-        val user = UserInfoQuery("hao", 31, "111")
+        val userDO = userRepository.findByName("hao")
+        val user = UserInfoQuery("hao", 30, "123456")
         mockMvc.perform(
-                MockMvcRequestBuilders.put("/users/$userId")
+                MockMvcRequestBuilders.put("/users/${userDO.id}")
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(Gson().toJson(user)))
                 .andDo(MockMvcResultHandlers.print())
